@@ -46,5 +46,9 @@ class ofApp : public ofBaseApp{
     vector <BaseScene *> scenes;
 
     int currentScene;
+    
+    
+    
+    //gitテスト
 		
 };
