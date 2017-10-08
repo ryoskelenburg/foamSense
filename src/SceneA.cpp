@@ -10,15 +10,28 @@
 #include "SceneA.h"
 
 void SceneA::setup(){
-    //font.loadFont("NotoSans-Bold.ttf", 50);
+
 }
 
 void SceneA::update(){
-    
+    pressByte = ofMap(pressInput, 0, 1023, -200, 200);
 }
 
 void SceneA::draw(){
-    ofBackgroundHex(0xFF0000);
-    ofSetHexColor(0xFFFFFF);
-    font.drawString("Hi, I am SceneA!", 40, ofGetHeight() / 2.0);
+    
+    ofTranslate(width/2, height/2);
+    
+    ofBackground(0);
+    ofBeginShape();
+    ofVertex(200,0+pressByte);
+    ofVertex(-200,0+pressByte);
+    ofVertex(-200,200);
+    ofVertex(200,200);
+    ofEndShape(true);
+    
+    
+    ofSetColor(255);
+    ofDrawBitmapString("value", 10, 10);
 }
+
+

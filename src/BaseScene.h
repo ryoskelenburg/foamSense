@@ -26,6 +26,12 @@ public:
     virtual void mousePressed(int x, int y, int button){};
     virtual void mouseReleased(int x, int y, int button){};
     virtual void windowResized(int w, int h){};
+    
+    int width = ofGetWidth();
+    int height = ofGetHeight();
+
+    int pressInput;
+    int pressByte;
 };
 
 #endif /* BaseScene_h */

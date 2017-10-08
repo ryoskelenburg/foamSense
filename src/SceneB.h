@@ -21,6 +21,7 @@ public:
     void setup();
     void update();
     void draw();
+
     
     ofTrueTypeFont font;
 };

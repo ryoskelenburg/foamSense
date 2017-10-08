@@ -17,7 +17,11 @@ void SceneC::update(){
 }
 
 void SceneC::draw(){
-    ofBackgroundHex(0xFFFFFF);
-    ofSetHexColor(0xFFFFFF);
-    font.drawString("Hi, I am SceneB!", 40, ofGetHeight() / 2.0);
+    ofBackground(0);
+    ofBeginShape();
+    ofVertex(200,200);
+    ofVertex(- 200,200);
+    ofVertex(pressByte ,-200);
+    ofVertex(400 + pressByte,-200);
+    ofEndShape(true);
 }

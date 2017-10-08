@@ -23,6 +23,8 @@ public:
     void draw();
     
     ofTrueTypeFont font;
+    
+    
 };
 
 #endif /* SceneA_h */

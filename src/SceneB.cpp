@@ -18,6 +18,5 @@ void SceneB::update(){
 
 void SceneB::draw(){
     ofBackgroundHex(0xFFFF00);
-    ofSetHexColor(0xFFFFFF);
-    font.drawString("Hi, I am SceneB!", 40, ofGetHeight() / 2.0);
+    ofDrawRectangle(0, 0, 400, 400);
 }
