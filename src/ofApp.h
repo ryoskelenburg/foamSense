@@ -37,11 +37,9 @@ public:
     float old = 0;
     int output;
     int inByte;
+    int getByte(){ return inByte;};
     
-    //    int inByte = 0;
     int xByte, yByte, zByte;
-    
-    
     int angle;
     
     vector <BaseScene *> scenes;

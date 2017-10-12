@@ -10,6 +10,7 @@
 
 #pragma once
 #include "ofMain.h"
+#include "ofApp.h"
 
 // 全てのシーンの雛形
 class BaseScene {

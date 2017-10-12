@@ -22,6 +22,8 @@ public:
     void update();
     void draw();
     
+    int inByte1;
+    
     ofTrueTypeFont font;
     
     
