@@ -21,8 +21,9 @@ public:
     void setup();
     void update();
     void draw();
+    void newValue(int _newvalue);
 
-    
+    int inByteA1;
     ofTrueTypeFont font;
 };
 

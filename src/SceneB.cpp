@@ -20,3 +20,7 @@ void SceneB::draw(){
     ofBackgroundHex(0xFFFF00);
     ofDrawRectangle(0, 0, 400, 400);
 }
+
+void SceneB::newValue(int _newvalue) {
+    inByteA1 = _newvalue;
+}

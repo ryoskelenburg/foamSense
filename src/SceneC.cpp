@@ -25,3 +25,8 @@ void SceneC::draw(){
     ofVertex(400 + pressByte,-200);
     ofEndShape(true);
 }
+
+void SceneC::newValue(int _newvalue) {
+    //ofAppから来た値を変数に格納
+    inByteA2 = _newvalue;
+}

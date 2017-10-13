@@ -44,24 +44,24 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     
-    //xByte = ofMap(output, 0, 1023, -200, 200);
-    //yByte = ofMap(output, 700, 930, -400, 400);
-    //zByte = ofMap(output, 250, 1023, 0, 45);
+
+
     updateArduino();
-    inByte = ard.getAnalog(0);
-    avelageAnalog();
     
+    //３個の箱に値をanalog0~2の値を入れる
+    for (int i=0; i<3; i++) {
+        inByte[i] = ard.getAnalog(i);
+        avelageAnalog(i);
+    }
+    
+    //各SceneのnewValueに各配列に当たる変数を送る．
+    scenes[currentScene]->newValue(inByte[currentScene]);
     scenes[currentScene]->update();
 }
 
 //--------------------------------------------------------------
 void ofApp::draw(){
-    
-    
-    std::cout << "fromArduino: " << inByte << endl;
-    
     scenes[currentScene]->draw();
-    
 }
 
 void ofApp::setupArduino(const int & version)
@@ -80,9 +80,9 @@ void ofApp::updateArduino(){
     ard.update();
 }
 
-void ofApp::avelageAnalog(){
-    inByte = a * old + (1 - a) * ard.getAnalog(0);
-    old = inByte;
+void ofApp::avelageAnalog(int _scene){
+    inByte[_scene] = a * old + (1 - a) * ard.getAnalog(0);
+    old = inByte[_scene];
 }
 
 

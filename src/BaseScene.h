@@ -20,6 +20,7 @@ public:
     virtual void setup(){};
     virtual void update(){};
     virtual void draw(){};
+    virtual void newValue(int _newvalue){};
     virtual void keyPressed (int key){};
     virtual void keyReleased(int key){};
     virtual void mouseMoved(int x, int y ){};

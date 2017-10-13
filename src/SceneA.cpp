@@ -10,7 +10,7 @@
 #include "SceneA.h"
 
 void SceneA::setup(){
-
+    
 }
 
 void SceneA::update(){
@@ -18,16 +18,13 @@ void SceneA::update(){
 }
 
 void SceneA::draw(){
-    
-    ofApp reference;
-    ofApp *byte;
-    inByte1 = byte -> getByte();
+    std::cout << "fromArduino: " << inByteA0 << endl;
     ofTranslate(width/2, height/2);
     
     ofBackground(0);
     ofBeginShape();
-    ofVertex(200,0+inByte1);
-    ofVertex(-200,0+inByte1);
+    ofVertex(200,0);
+    ofVertex(-200,0);
     ofVertex(-200,200);
     ofVertex(200,200);
     ofEndShape(true);
@@ -37,4 +34,7 @@ void SceneA::draw(){
     ofDrawBitmapString("value", 10, 10);
 }
 
-
+void SceneA::newValue(int _newvalue) {
+    //ofAppから来た値を変数に格納
+    inByteA0 = _newvalue;
+}

@@ -21,12 +21,11 @@ public:
     void setup();
     void update();
     void draw();
+    void newValue(int _newvalue);
     
-    int inByte1;
+    int inByteA0;
     
     ofTrueTypeFont font;
-    
-    
 };
 
 #endif /* SceneA_h */

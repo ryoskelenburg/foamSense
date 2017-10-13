@@ -21,8 +21,11 @@ public:
     void setup();
     void update();
     void draw();
+    void newValue(int _newvalue);
     
     ofTrueTypeFont font;
+    
+    int inByteA2;
 };
 
 #endif /* SceneC_h */

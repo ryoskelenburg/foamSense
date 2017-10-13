@@ -25,7 +25,7 @@ public:
     void dragEvent(ofDragInfo dragInfo);
     void gotMessage(ofMessage msg);
     
-    void avelageAnalog();
+    void avelageAnalog(int _scene);
     void updateArduino();
     void setupArduino(const int & version);
     
@@ -36,8 +36,10 @@ public:
     float a = 0.99;
     float old = 0;
     int output;
-    int inByte;
-    int getByte(){ return inByte;};
+
+    //変数が格納される配列を生成
+    int inByte[3];
+
     
     int xByte, yByte, zByte;
     int angle;
