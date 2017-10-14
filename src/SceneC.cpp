@@ -17,6 +17,8 @@ void SceneC::update(){
 }
 
 void SceneC::draw(){
+    
+    std::cout << "fromAnalogA2: " << inByteA2 << endl;
     ofBackground(0);
     ofBeginShape();
     ofVertex(200,200);

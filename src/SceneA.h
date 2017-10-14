@@ -22,10 +22,12 @@ public:
     void update();
     void draw();
     void newValue(int _newvalue);
+    void avelageValue(int _value);
+
     
     int inByteA0;
-    
-    ofTrueTypeFont font;
+    int value = 0;
+    int oldDelta,oldValue,maxValue = 0;
 };
 
 #endif /* SceneA_h */

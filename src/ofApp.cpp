@@ -51,9 +51,12 @@ void ofApp::update(){
     //３個の箱に値をanalog0~2の値を入れる
     for (int i=0; i<3; i++) {
         inByte[i] = ard.getAnalog(i);
-        avelageAnalog(i);
+        //avelageAnalog(i);
     }
     
+//    scenes[0]->newValue(inByte[0]);
+//    scenes[1]->newValue(inByte[1]);
+//    scenes[2]->newValue(inByte[2]);
     //各SceneのnewValueに各配列に当たる変数を送る．
     scenes[currentScene]->newValue(inByte[currentScene]);
     scenes[currentScene]->update();
@@ -67,7 +70,7 @@ void ofApp::draw(){
 void ofApp::setupArduino(const int & version)
 {
     ofRemoveListener(ard.EInitialized,this,&ofApp::setupArduino);
-    for(int i = 0;i < 6;i++)
+    for(int i = 0;i < 3;i++)
     {
         ard.sendAnalogPinReporting(i, ARD_ANALOG);
     }
@@ -81,7 +84,7 @@ void ofApp::updateArduino(){
 }
 
 void ofApp::avelageAnalog(int _scene){
-    inByte[_scene] = a * old + (1 - a) * ard.getAnalog(0);
+    inByte[_scene] = a * old + (1 - a) * ard.getAnalog(_scene);
     old = inByte[_scene];
 }
 
@@ -100,6 +103,7 @@ void ofApp::keyPressed(int key){
         case 'f':
             ofToggleFullscreen();
             break;
+
     }
 }
 

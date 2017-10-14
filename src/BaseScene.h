@@ -21,6 +21,7 @@ public:
     virtual void update(){};
     virtual void draw(){};
     virtual void newValue(int _newvalue){};
+    virtual void calibrationMode(int _minvalue,int _maxvalue){};
     virtual void keyPressed (int key){};
     virtual void keyReleased(int key){};
     virtual void mouseMoved(int x, int y ){};
@@ -28,12 +29,18 @@ public:
     virtual void mousePressed(int x, int y, int button){};
     virtual void mouseReleased(int x, int y, int button){};
     virtual void windowResized(int w, int h){};
+    virtual void avelageValue(int value){};
+    
     
     int width = ofGetWidth();
     int height = ofGetHeight();
 
     int pressInput;
-    int pressByte;
+    int pressByte,pressSponge;
+    
+    float a = 0.99;
+    float old = 0;
+    int output;
 };
 
 #endif /* BaseScene_h */
