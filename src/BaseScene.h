@@ -20,7 +20,7 @@ public:
     virtual void setup(){};
     virtual void update(){};
     virtual void draw(){};
-    virtual void newValue(int _newvalue){};
+    virtual void newValue(int _newvalue, int _newvalue2){};
     virtual void calibrationMode(int _minvalue,int _maxvalue){};
     virtual void keyPressed (int key){};
     virtual void keyReleased(int key){};

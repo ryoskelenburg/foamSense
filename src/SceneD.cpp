@@ -37,7 +37,7 @@ void SceneD::draw(){
     std::cout << "inByteA2: " << inByteA3 << endl;
     std::cout << "value: " << value << endl;
     std::cout << "MaxArduino: " << maxValue << endl;
-    ofBackground(255);
+    ofBackground(200);
     
     ofTranslate(width/2, height/2);
     ofSetColor(0);
@@ -50,9 +50,10 @@ void SceneD::draw(){
     
 }
 
-void SceneD::newValue(int _newvalue) {
+void SceneD::newValue(int _newvalue, int _newvalue2) {
     //ofAppから来た値を変数に格納
     inByteA3 = _newvalue;
+    inByteA4 = _newvalue2;
 }
 
 void SceneD::avelageValue(int _value){

@@ -54,7 +54,7 @@ void SceneB::draw(){
     
 }
 
-void SceneB::newValue(int _newvalue) {
+void SceneB::newValue(int _newvalue, int _newvalue2) {
     inByteA1 = _newvalue;
 }
 

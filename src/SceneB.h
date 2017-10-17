@@ -21,7 +21,7 @@ public:
     void setup();
     void update();
     void draw();
-    void newValue(int _newvalue);
+    void newValue(int _newvalue, int _newvalue2);
     void avelageValue(int _value);
 
     int inByteA1;

@@ -5,6 +5,7 @@
 #include "SceneA.h"
 #include "SceneB.h"
 #include "SceneC.h"
+#include "SceneD.h"
 
 class ofApp : public ofBaseApp{
     
@@ -37,8 +38,10 @@ public:
     float old = 0;
     int output;
 
-    //変数が格納される配列を生成
+    //スポンジからの値を格納する配列を生成
     int inByte[3];
+    //一つのシーンに複数の値を送るための配列
+    int tiltByte[2];
 
     
     int xByte, yByte, zByte;

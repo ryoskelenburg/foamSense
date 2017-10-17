@@ -54,7 +54,7 @@ void SceneA::draw(){
     //ofDrawBitmapString("Please calibration!", -30, 10);
 }
 
-void SceneA::newValue(int _newvalue) {
+void SceneA::newValue(int _newvalue, int _newvalue2) {
     //ofAppから来た値を変数に格納
     inByteA0 = _newvalue;
 }

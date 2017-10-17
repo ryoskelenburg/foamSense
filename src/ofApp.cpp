@@ -10,7 +10,7 @@ void ofApp::setup(){
     //ディスプレイの設定
     ofSetWindowPosition(1441,0);
     ofSetFullscreen(true);
-//    ofSetWindowShape(APP_WIDTH, APP_HEIGHT);
+    //    ofSetWindowShape(APP_WIDTH, APP_HEIGHT);
     ofSetWindowShape(1440, 900);
     
     ard.connect("/dev/cu.usbmodem1411",57600);
@@ -34,6 +34,10 @@ void ofApp::setup(){
     BaseScene *sc = new SceneC();
     sc->setup();
     scenes.push_back(sc);
+    // D
+    BaseScene *sd = new SceneD();
+    sd->setup();
+    scenes.push_back(sd);
     
     //現在のシーンを0に
     currentScene = 0;
@@ -44,21 +48,30 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     
-
-
+    
+    
     updateArduino();
     
-    //３個の箱に値をanalog0~2の値を入れる
-    for (int i=0; i<3; i++) {
-        inByte[i] = ard.getAnalog(i);
-        //avelageAnalog(i);
+    //"4"個の箱に値をanalog0~4の値を入れる
+    for (int i=0; i<5; i++) {
+        
+        //int j = i - 3;
+        if(i < 3){
+            inByte[i] = ard.getAnalog(i);
+        } else if(i == 3){
+            tiltByte[0] = ard.getAnalog(i);
+        } else if (i == 4){
+            tiltByte[1] = ard.getAnalog(i);
+        }
+        
     }
     
-//    scenes[0]->newValue(inByte[0]);
-//    scenes[1]->newValue(inByte[1]);
-//    scenes[2]->newValue(inByte[2]);
+    scenes[0]->newValue(inByte[0],0);
+    scenes[1]->newValue(inByte[1],0);
+    scenes[2]->newValue(inByte[2],0);
+    scenes[3]->newValue(tiltByte[0],tiltByte[1]);
     //各SceneのnewValueに各配列に当たる変数を送る．
-    scenes[currentScene]->newValue(inByte[currentScene]);
+    //scenes[currentScene]->newValue(inByte[currentScene]);
     scenes[currentScene]->update();
 }
 
@@ -70,7 +83,7 @@ void ofApp::draw(){
 void ofApp::setupArduino(const int & version)
 {
     ofRemoveListener(ard.EInitialized,this,&ofApp::setupArduino);
-    for(int i = 0;i < 3;i++)
+    for(int i = 0;i < 5;i++)
     {
         ard.sendAnalogPinReporting(i, ARD_ANALOG);
     }
@@ -103,7 +116,7 @@ void ofApp::keyPressed(int key){
         case 'f':
             ofToggleFullscreen();
             break;
-
+            
     }
 }
 

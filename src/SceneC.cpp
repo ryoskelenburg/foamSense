@@ -50,7 +50,7 @@ void SceneC::draw(){
     
 }
 
-void SceneC::newValue(int _newvalue) {
+void SceneC::newValue(int _newvalue, int _newvalue2) {
     //ofAppから来た値を変数に格納
     inByteA2 = _newvalue;
 }
