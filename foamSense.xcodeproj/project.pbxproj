@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A3AC6A51F95EC22005BF746 /* SceneD.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A3AC6A41F95EC22005BF746 /* SceneD.cpp */; };
 		4A87452A1F88E02E001E3F41 /* SceneA.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A8745291F88E02E001E3F41 /* SceneA.cpp */; };
 		4A87452C1F88E0AF001E3F41 /* SceneB.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A87452B1F88E0AF001E3F41 /* SceneB.cpp */; };
 		4A8745301F88E1B4001E3F41 /* SceneC.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4A87452F1F88E1B4001E3F41 /* SceneC.cpp */; };
@@ -45,6 +46,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4A3AC6A41F95EC22005BF746 /* SceneD.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SceneD.cpp; sourceTree = "<group>"; };
+		4A3AC6A61F95ECB5005BF746 /* SceneD.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneD.h; sourceTree = "<group>"; };
 		4A8745271F88DFA5001E3F41 /* BaseScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BaseScene.h; sourceTree = "<group>"; };
 		4A8745281F88DFD7001E3F41 /* SceneA.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneA.h; sourceTree = "<group>"; };
 		4A8745291F88E02E001E3F41 /* SceneA.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = SceneA.cpp; sourceTree = "<group>"; };
@@ -122,6 +125,8 @@
 				4A87452B1F88E0AF001E3F41 /* SceneB.cpp */,
 				4A87452E1F88E18E001E3F41 /* SceneC.h */,
 				4A87452F1F88E1B4001E3F41 /* SceneC.cpp */,
+				4A3AC6A61F95ECB5005BF746 /* SceneD.h */,
+				4A3AC6A41F95EC22005BF746 /* SceneD.cpp */,
 			);
 			path = src;
 			sourceTree = SOURCE_ROOT;
@@ -225,6 +230,7 @@
 				4A87452A1F88E02E001E3F41 /* SceneA.cpp in Sources */,
 				4A8745301F88E1B4001E3F41 /* SceneC.cpp in Sources */,
 				E4B69E200A3A1BDC003C02F2 /* main.cpp in Sources */,
+				4A3AC6A51F95EC22005BF746 /* SceneD.cpp in Sources */,
 				E4B69E210A3A1BDC003C02F2 /* ofApp.cpp in Sources */,
 				4A87452C1F88E0AF001E3F41 /* SceneB.cpp in Sources */,
 			);
