@@ -22,10 +22,13 @@ public:
     void draw();
     void newValue(int _newvalue, int _newvalue2);
     void avelageValue(int _value);
+    void avelageValue2(int _value2);
     
     ofTrueTypeFont font;
     
     int inByteA3, inByteA4;
+    int leftByte, rightByte;
+    int leftSurface, rightSurface;
 };
 
 #endif /* SceneD_h */

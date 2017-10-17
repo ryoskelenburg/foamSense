@@ -30,6 +30,7 @@ public:
     virtual void mouseReleased(int x, int y, int button){};
     virtual void windowResized(int w, int h){};
     virtual void avelageValue(int value){};
+    virtual void avelageValue2(int value2){};
     
     
     int width = ofGetWidth();
@@ -39,11 +40,11 @@ public:
     int pressByte,pressSponge;
     
     int spongeDefine = 0;
-    int value =0;
+    int value,value2 =0;
     int oldDelta,oldValue,maxValue = 0;
     
-    float a = 0.97;
-    float old = 0;
+    float a,b = 0.97;
+    float old, old2 = 0;
     int output;
 };
 
