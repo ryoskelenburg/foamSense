@@ -9,16 +9,49 @@
 #include "SceneB.h"
 
 void SceneB::setup(){
-    //font.loadFont("NotoSans-Bold.ttf", 50);
+    ofSetFrameRate(60);
+    spongeDefine = 100;
+    
 }
 
 void SceneB::update(){
-    avelageValue(inByteA1);
+    
+    
+    
+    avelageValue(inByteA1);//フィルターにかける
+    if(inByteA1 < spongeDefine + 1){//閾値より下なら定数を代入する
+//        for (int i = 150; i>0; i++) {
+//            inByteA1 = i;
+//            ofSleepMillis(1);
+//        }
+        inByteA1 = 0;
+    }
+    value = inByteA1;//valueに格納
+    
+    pressByte = ofMap(value,0, 500, 0, 150);
+    //
+    
+
+    //pressSponge = ofMap(value,0,100,0,10);
+    
+    if(value > maxValue){
+        maxValue = value;
+    }
 }
 
 void SceneB::draw(){
-    ofBackgroundHex(000000);
-    std::cout << "fromAnalogA1: " << inByteA1 << endl;
+    
+    std::cout << "%%%%" << pressByte << "%" << endl;
+    std::cout << "rawDeta: " << inByteA1 << endl;
+    std::cout << "currentArduino: " << value << endl;
+    std::cout << "MaxArduino: " << maxValue << endl;
+    
+    ofBackground(255);
+    ofTranslate(width/2, height/2);
+    ofRotateZ(pressByte);
+    ofSetColor(0);
+    ofDrawRectangle(0, 0, 400, 400);
+    
 }
 
 void SceneB::newValue(int _newvalue) {

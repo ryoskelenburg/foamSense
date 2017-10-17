@@ -22,6 +22,7 @@ public:
     void update();
     void draw();
     void newValue(int _newvalue);
+    void avelageValue(int _value);
     
     ofTrueTypeFont font;
     

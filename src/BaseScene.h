@@ -38,7 +38,11 @@ public:
     int pressInput;
     int pressByte,pressSponge;
     
-    float a = 0.99;
+    int spongeDefine = 0;
+    int value =0;
+    int oldDelta,oldValue,maxValue = 0;
+    
+    float a = 0.97;
     float old = 0;
     int output;
 };

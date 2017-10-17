@@ -26,8 +26,8 @@ public:
 
     
     int inByteA0;
-    int value = 0;
-    int oldDelta,oldValue,maxValue = 0;
+    //int value = 0;
+    //int oldDelta,oldValue,maxValue = 0;
 };
 
 #endif /* SceneA_h */

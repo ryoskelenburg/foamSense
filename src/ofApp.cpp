@@ -8,10 +8,10 @@ void ofApp::setup(){
     ofBackground(0);
     
     //ディスプレイの設定
-    //ofSetWindowPosition(1441,0);
-    //ofSetFullscreen(true);
-    //ofSetWindowShape(APP, <#int height#>)
-    //ofSetWindowShape(1440, 900);
+    ofSetWindowPosition(1441,0);
+    ofSetFullscreen(true);
+//    ofSetWindowShape(APP_WIDTH, APP_HEIGHT);
+    ofSetWindowShape(1440, 900);
     
     ard.connect("/dev/cu.usbmodem1411",57600);
     ofAddListener(ard.EInitialized, this, &ofApp::setupArduino);
