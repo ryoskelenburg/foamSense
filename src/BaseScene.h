@@ -40,6 +40,8 @@ public:
     int pressByte,pressSponge;
     
     int spongeDefine = 0;
+    int tiltDefine[2];
+    int maxTiltPram[2];
     int value,value2 =0;
     int oldDelta,oldValue,maxValue = 0;
     

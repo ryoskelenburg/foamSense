@@ -11,44 +11,60 @@
 void SceneD::setup(){
     ofSetFrameRate(60);
     
-    spongeDefine = 0;
+    tiltDefine[0] = 500;
+    tiltDefine[1] = 500;
 }
 
 void SceneD::update(){
+    
     avelageValue(inByteA3);
     avelageValue2(inByteA4);
     
-    if(inByteA3 < spongeDefine + 1){
-        inByteA3 = spongeDefine;
+    if(inByteA3 < tiltDefine[0] + 1){
+        inByteA3 = tiltDefine[0];
+    }
+    if(inByteA4 < tiltDefine[1] + 1){
+        inByteA4 = tiltDefine[1];
     }
     
     value = inByteA3;
     value2 = inByteA4;
     
-    leftByte = ofMap(value,spongeDefine, maxValue, 0, 100);
-    rightByte = ofMap(value2,spongeDefine, maxValue, 0, 100);
-    leftSurface = ofMap(leftByte,0,100,0,200);
-    rightSurface = ofMap(rightByte, 0, 100, 0, 200);
+    leftByte = ofMap(value,tiltDefine[0], maxTiltPram[0], 0, 100);
+    rightByte = ofMap(value2,tiltDefine[1], maxTiltPram[1], 0, 100);
+    leftSurface = ofMap(leftByte,0,100,0,390);
+    rightSurface = ofMap(rightByte, 0, 100, 0, 390);
     
-//    if(value > maxValue){
-//        maxValue = value;
+    if(value > maxTiltPram[0]){
+        maxTiltPram[0] = value;
+    }
+    if(value2 > maxTiltPram[1]){
+        maxTiltPram[1] = value2;
+    }
+//    if(value < tiltDefine[0]){
+//        tiltDefine[0] = value;
+//    }
+//    if(value2 < tiltDefine[1]){
+//        tiltDefine[1] = value2;
 //    }
     //maxValue = 1023;
 }
 
 void SceneD::draw(){
     
-    std::cout << "ratioA3: " << pressByte << "%" << endl;
-    std::cout << "currentRawDetaA3: " << inByteA3 << endl;
-    std::cout << "maxPramA3: " << maxValue << endl;
-    std::cout << "ratioA4: " << pressByte << "%" << endl;
-    std::cout << "currentRawDetaA4: " << inByteA4 << endl;
-    std::cout << "maxPramA4: " << maxValue << endl;
+    std::cout << "ratioA3: " << leftByte << "%" << endl;
+    std::cout << "rawDetaA3: " << inByteA3 << endl;
+    std::cout << "maxPramA3: " << tiltDefine[0] << "/" << maxTiltPram[0] << endl;
+    std::cout << "ratioA4: " << rightByte << "%" << endl;
+    std::cout << "rawDetaA4: " << inByteA4 << endl;
+    std::cout << "maxPramA4: " << tiltDefine[1] << "/" << maxTiltPram[1] << endl;
     
     ofBackground(255);
     
     ofTranslate(width/2, height/2);
     ofDrawBitmapString("TILT MODE", -300, -300);
+    ofDrawBitmapString("A3:" + ofToString(int(inByteA3)), -300, -280);
+    ofDrawBitmapString("A4:" + ofToString(int(inByteA4)), -300, -260);
     ofSetColor(0);
     ofBeginShape();
     ofVertex(200,200);//右下
