@@ -8,10 +8,10 @@ void ofApp::setup(){
     ofBackground(0);
     
     //ディスプレイの設定
-    ofSetWindowPosition(1441,0);
-    ofSetFullscreen(true);
-    //    ofSetWindowShape(APP_WIDTH, APP_HEIGHT);
-    ofSetWindowShape(1440, 900);
+//    ofSetWindowPosition(1441,0);
+//    ofSetFullscreen(true);
+//    //    ofSetWindowShape(APP_WIDTH, APP_HEIGHT);
+//    ofSetWindowShape(1440, 900);
     
     ard.connect("/dev/cu.usbmodem1411",57600);
     ofAddListener(ard.EInitialized, this, &ofApp::setupArduino);
@@ -38,6 +38,10 @@ void ofApp::setup(){
     BaseScene *sd = new SceneD();
     sd->setup();
     scenes.push_back(sd);
+    // E
+    BaseScene *se = new SceneE();
+    se->setup();
+    scenes.push_back(se);
     
     //現在のシーンを0に
     currentScene = 0;
@@ -53,7 +57,7 @@ void ofApp::update(){
     updateArduino();
     
     //"4"個の箱に値をanalog0~4の値を入れる
-    for (int i=0; i<5; i++) {
+    for (int i=0; i<6; i++) {
         
         //int j = i - 3;
         if(i < 3){
@@ -62,6 +66,8 @@ void ofApp::update(){
             tiltByte[0] = ard.getAnalog(i);
         } else if (i == 4){
             tiltByte[1] = ard.getAnalog(i);
+        } else if(i == 5) {
+            inByte[3] = ard.getAnalog(i);
         }
         
     }
@@ -70,6 +76,7 @@ void ofApp::update(){
     scenes[1]->newValue(inByte[1],0);
     scenes[2]->newValue(inByte[2],0);
     scenes[3]->newValue(tiltByte[0],tiltByte[1]);
+    scenes[4]->newValue(inByte[3], 0);
     //各SceneのnewValueに各配列に当たる変数を送る．
     //scenes[currentScene]->newValue(inByte[currentScene]);
     scenes[currentScene]->update();
@@ -83,7 +90,7 @@ void ofApp::draw(){
 void ofApp::setupArduino(const int & version)
 {
     ofRemoveListener(ard.EInitialized,this,&ofApp::setupArduino);
-    for(int i = 0;i < 5;i++)
+    for(int i = 0;i < 6;i++)
     {
         ard.sendAnalogPinReporting(i, ARD_ANALOG);
     }

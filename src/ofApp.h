@@ -6,6 +6,7 @@
 #include "SceneB.h"
 #include "SceneC.h"
 #include "SceneD.h"
+#include "SceneE.h"
 
 class ofApp : public ofBaseApp{
     
@@ -39,7 +40,7 @@ public:
     int output;
 
     //スポンジからの値を格納する配列を生成
-    int inByte[3];
+    int inByte[4];
     //一つのシーンに複数の値を送るための配列
     int tiltByte[2];
 
