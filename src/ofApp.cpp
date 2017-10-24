@@ -8,10 +8,10 @@ void ofApp::setup(){
     ofBackground(0);
     
     //ディスプレイの設定
-//    ofSetWindowPosition(1441,0);
-//    ofSetFullscreen(true);
-//    //    ofSetWindowShape(APP_WIDTH, APP_HEIGHT);
-//    ofSetWindowShape(1440, 900);
+    ofSetWindowPosition(1601,0);
+    ofSetFullscreen(true);
+    //    ofSetWindowShape(APP_WIDTH, APP_HEIGHT);
+    ofSetWindowShape(1600, 900);
     
     ard.connect("/dev/cu.usbmodem1411",57600);
     ofAddListener(ard.EInitialized, this, &ofApp::setupArduino);
@@ -104,8 +104,8 @@ void ofApp::updateArduino(){
 }
 
 void ofApp::avelageAnalog(int _scene){
-    inByte[_scene] = a * old + (1 - a) * ard.getAnalog(_scene);
-    old = inByte[_scene];
+//    inByte[_scene] = a * old + (1 - a) * ard.getAnalog(_scene);
+//    old = inByte[_scene];
 }
 
 

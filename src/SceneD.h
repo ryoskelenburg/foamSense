@@ -29,6 +29,11 @@ public:
     int inByteA3, inByteA4;
     int leftByte, rightByte;
     int leftSurface, rightSurface;
+    int lowpassvalue1 = 0;
+    int lowpassvalue2 = 0;
+    int old;
+    int old2;
+    float a = 0.99;
 };
 
 #endif /* SceneD_h */

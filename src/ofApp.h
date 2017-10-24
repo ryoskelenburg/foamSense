@@ -35,9 +35,9 @@ public:
     ofArduino ard;
     bool bSetupArduino;
     
-    float a = 0.99;
-    float old = 0;
-    int output;
+//    float a = 0.99;
+//    float old = 0;
+//    int output;
 
     //スポンジからの値を格納する配列を生成
     int inByte[4];

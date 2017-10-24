@@ -42,11 +42,14 @@ public:
     int spongeDefine = 0;
     int tiltDefine[2];
     int maxTiltPram[2];
-    int value,value2 =0;
-    int oldDelta,oldValue,maxValue = 0;
+    int value = 0,value2 =0;
+    int oldDelta = 0,oldValue = 0;
+    int maxValue;
     
-    float a,b = 0.97;
-    float old, old2 = 0;
+    float a = 0.99;
+    float b = 0.99;
+    float old;
+    float old2;
     int output;
 };
 

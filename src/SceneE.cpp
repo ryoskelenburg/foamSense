@@ -10,12 +10,26 @@
 
 void SceneE::setup(){
     ofSetFrameRate(60);
-    
-    
+    spongeDefine = 100;
+    a = 0.99;
 }
 
 void SceneE::update(){
-    value = ofMap(inByteA5, 0, 1023, 150, 2048);
+    
+                avelageValue(inByteA5);
+    //lowpassValue = newavelageValue(inByteA5);
+    
+    if(lowpassValue < spongeDefine + 1){
+        lowpassValue = spongeDefine;
+    }
+    if(lowpassValue > maxValue){
+        maxValue = lowpassValue;
+    }
+//    if(value < 150){
+//        value = 150;
+//    }
+
+    value = ofMap(lowpassValue, spongeDefine, maxValue, 2048, 150);
     
 }
 
@@ -23,16 +37,12 @@ void SceneE::draw(){
     
     ofBackground(255);
     
+    ofSetColor(0);
     ofTranslate(width/2, height/2);
     ofScale(1, 1);//x,y axis reverce.
-    ofDrawBitmapString("BEND MODE", -300, -300);
+    //    ofDrawBitmapString("lowpassvalue: " + ofToString(lowpassValue), -300, -300);
+    //    ofDrawBitmapString("a" + ofToString(a), -300, -350);
     
-    ofSetColor(0);
-    ofBeginShape();
-    ofEndShape(true);
-    
-    ofNoFill();
-    ofFill();
     ofSetColor(0);
     //line(0,0, 200+100*cos(PI), 200+100*sin(PI));
     int curveRadius = value;// 曲率半径 ここが変数．
@@ -60,7 +70,9 @@ void SceneE::draw(){
     curve.setStrokeWidth(1);
     curve.draw();
     curveBottom.arc(p, curveRadius-50, curveRadius-50, -90 - (theta /2)*(180/PI) ,-90 + (theta /2)*(180/PI) );
-    std::cout << "radius:" << inByteA5 << endl;
+    std::cout << "lowpassValue:" << lowpassValue << endl;
+    std::cout << "value:" << value << endl;
+    std::cout << "maxValue:" << maxValue << endl;
     curveBottom.setCircleResolution(600);
     curveBottom.setStrokeColor(0);
     curveBottom.setStrokeWidth(1);
@@ -86,8 +98,14 @@ void SceneE::newValue(int _newvalue, int _newvalue2) {
     inByteA5 = _newvalue;
 }
 
+int SceneE::newavelageValue(int _value){
+    //    newvalue = a * old + (1 - a) * _value;
+    //    old = newvalue;
+    //    return (int)newvalue;
+}
 void SceneE::avelageValue(int _value){
-    
+    lowpassValue = a*old + (1-a)*_value;
+    old = lowpassValue;
 }
 
 void SceneE::avelageValue2(int _value2){

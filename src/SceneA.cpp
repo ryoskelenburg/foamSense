@@ -28,9 +28,6 @@ void SceneA::update(){
     pressByte = ofMap(value,maxValue - spongeDefine, maxValue, 0, 100);
     pressSponge = ofMap(pressByte,0,100,0,390);
     
-    if(value > maxValue){
-        maxValue = value;
-    }
 }
 
 void SceneA::draw(){

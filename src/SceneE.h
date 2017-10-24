@@ -21,10 +21,15 @@ public:
     void update();
     void draw();
     void newValue(int _newvalue, int _newvalue2);
-    void avelageValue(int _value);
+    int newavelageValue(int _value);
     void avelageValue2(int _value2);
+    void avelageValue(int _value);
     
     int inByteA5;
+    float newvalue;
+    int lowpassValue = 0;
+    int arrayA5[10];
+    int sumArray, aveArray;
     int value = 0;
 };
 
